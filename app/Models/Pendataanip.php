@@ -11,5 +11,5 @@ class Pendataanip extends Model
 
     protected $table = 'pendataan';
     protected $primaryKey = 'id';
-    protected $fillable = ['user_name', 'computer_name', 'ip_address', 'ram', 'os', 'division', 'img_path'];
+    protected $fillable = ['user_name', 'computer_name', 'ip_address', 'ram', 'os', 'division', 'detail_ruangan', 'img_ip', 'img_dskmgmn', 'img_dxdiag'];
 }
