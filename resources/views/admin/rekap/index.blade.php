@@ -4,24 +4,25 @@
 <div class="container-xxl flex-grow-1 ">
     <div class="col-md-12">
         <div class="card mb-4">
-            <div class="row card-header">
+            <div class="row pl-5 pt-4 ">
                 <div class="col-8">
                     <h5 class="">{{ $title }} Pendataan Alamat IP</h5>
                 </div>
                 <div class="col-4">
-                    <a href="{{ route('rekapTambah') }}" class="btn m-1 mr-4 btn-primary float-right">Tambah</a>
+                    <a href="{{ route('rekapTambah') }}" class="btn  mr-4 btn-primary float-right">Tambah</a>
                 </div>
             </div>
+            <hr>
             <div class="card-body demo-vertical-spacing demo-only-element">
                 <table id="myTable" class="table-striped">
                     <thead>
                         <tr>
                             <th width="1%">No</th>
-                            <th>Alamat IP</th>
+                            <th width="10%">Alamat IP</th>
                             <th>Nama Pengguna</th>
                             <th>Tempat/Lokasi</th>
                             <th>Status</th>
-                            <th>Aksi</th>
+                            <th width="20%">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,7 +53,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                x
             </div>
         </div>
     </div>

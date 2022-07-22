@@ -189,10 +189,10 @@
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
             <footer class="footer">
-                <nav class="card-body shadow">
+                <nav class="card-body bg-white shadow-sm">
                     <ul class="nav">
-                        <span>Developed by Muhamad Dedi Yusup | Suharjoko - JQ as Project Manager</span>
-                        <span class="copyright ml-auto">
+                        <span class="text-muted">Developed by Muhamad Dedi Yusup | Suharjoko - JQ as Project Manager</span>
+                        <span class="copyright ml-auto text-muted">
                             Copyright © 20220701 - {{ Carbon\Carbon::now()->format('Y') }}
                         </span>
                     </ul>

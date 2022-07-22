@@ -57,7 +57,17 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
+                            <div class="form-group row">
+                                <label ffor="exampleInputUsername2" class="col-sm-3 col-form-label">Detail Tempat</label>
+                                        <div class="col-sm-9">
 
+                                <textarea class="form-control" name="detail_ruangan" id="" cols="30" rows="2"
+                                    placeholder="Masukkan detail tempat komputer anda seperti nomor lantai atau ruangan">{{ $data->detail_ruangan }}</textarea>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-6">
                             <div class="form-group row">
                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nama
                                     Pengguna</label>
@@ -70,24 +80,8 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-6">
+                    </div>
 
-                            <div class="form-group row">
-                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Jabatan</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="basic-default-password32"
-                                        placeholder="Masukkan Alamat IP" value="{{ $data->division }}" name="divisi">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="form-label">Detail Tempat <sup class="text-danger">*Detail lokasi /
-                                lantai
-                                / ruangan</sup></label>
-                        <textarea class="form-control" name="detail_ruangan" id="" cols="30" rows="2"
-                            placeholder="Masukkan detail tempat komputer anda seperti nomor lantai atau ruangan">{{ $data->detail_ruangan }}</textarea>
-                    </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">

@@ -159,19 +159,20 @@
                         @csrf @method('POST')
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-default-password32">Alamat IP</label>
-                                    <div class="input-group input-group-merge">
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Alamat IP</label>
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" id="basic-default-password32"
-                                            placeholder="Masukkan Alamat IP" value="{{ $ip }}" name="ip" readonly>
+                                            placeholder="Masukkan Alamat IP" value="{{ $ip }}" name="ip"
+                                            readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="form-label text-capitalize" for="basic-default-password32">Nama
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nama
                                         Komputer</label>
-                                    <div class="input-group input-group-merge">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" id="basic-default-password32"
                                             placeholder="Masukkan Alamat IP" value="{{ $computer_name }}"
                                             name="nama_komputer" readonly>
@@ -181,53 +182,50 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-default-password32">RAM <sup
-                                            class="text-danger">*Satuan MB</sup></label>
-                                    <div class="input-group input-group-merge">
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Sistem Operasi
+                                    </label>
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" id="basic-default-password32"
-                                            placeholder="Masukkan Alamat IP" value="{{ $ram }}" name="ram" readonly>
+                                            placeholder="Masukkan Alamat IP" value="{{ $os }}" name="os" readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-default-password32">Sistem Operasi</label>
-                                    <div class="input-group input-group-merge">
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">RAM</label>
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" id="basic-default-password32"
-                                            placeholder="Masukkan Alamat IP" value="{{ $os }}" name="os" readonly>
+                                            placeholder="Masukkan Alamat IP" value="{{ $ram }}" name="ram"
+                                            readonly>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-default-password32">Nama Pengguna</label>
-                                    <div class="input-group input-group-merge">
-                                        <input type="text" class="form-control border" id="basic-default-password32"
-                                            placeholder="Masukkan Nama Pengguna" value="" name="nama_pengguna" required>
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Lokasi
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" name="detail_ruangan" id="" cols="2" rows="2"
+                                            placeholder="..Unit Organisasi, Perangkat Daerah.."
+                                            required></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="basic-default-password32">Jabatan</label>
-                                    <div class="input-group input-group-merge">
+                            <div class="col-lg-6">
+                                <div class="form-group row">
+                                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nama
+                                        Pengguna</label>
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" id="basic-default-password32"
-                                            placeholder="Masukkan Jabatan" value="" name="divisi" required>
+                                            placeholder="..Nama.." value="" name="nama_pengguna">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="form-label">Detail Tempat <sup class="text-danger">*Detail lokasi /
-                                    lantai
-                                    / ruangan</sup></label>
-                            <textarea class="form-control" name="detail_ruangan" id="" cols="2" rows="2"
-                                placeholder="Masukkan detail tempat komputer anda seperti nomor lantai atau ruangan"
-                                required></textarea>
-                        </div>
+
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -305,7 +303,7 @@
     <script>
         setTimeout(
             element = document.getElementById("cek");
-            element.classList.add("d-none");   
+            element.classList.add("d-none");
             console.log('hai');
         , 2000)
     </script>

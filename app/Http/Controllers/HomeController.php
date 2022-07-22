@@ -26,14 +26,30 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $status = [
+            'aktif' => Pendataanip::where('status', '1')->count(),
+            'sistem' => Pendataanip::where('status', '2')->count(),
+            'tersedia' => Pendataanip::where('status', '3')->count(),
+        ];
+
+        if (Pendataanip::where('ip_address', $_SERVER['REMOTE_ADDR'])->count() > 0) {
+            $getIP = Pendataanip::where('ip_address', $_SERVER['REMOTE_ADDR'])->first();
+            $cek = "True";
+        } else {
+            $getIP = "";
+            $cek = "False";
+        }
+
         $data = [
             'data' => Pendataanip::all(),
             'ip' => $_SERVER['REMOTE_ADDR'],
             'title' => 'Home',
-            'data' => Pendataanip::where('ip_address', $_SERVER['REMOTE_ADDR'])->first(),
+            'data' => $getIP,
+            'cek' => $cek,
             'pendataan' => Pendataanip::all(),
         ];
-        return view('admin/index', $data);
+        return view('admin/index', $status, $data);
     }
 
     public function pendataan()
@@ -41,22 +57,19 @@ class HomeController extends Controller
         $system = new SystemInfo();
         $ipAddress =  $_SERVER['REMOTE_ADDR'];
         $checkIP = Pendataanip::where('ip_address', $ipAddress)->first();
-        // if ($checkIP) {
         $data = [
             'title' => 'Pendataan',
             'checkIP' => $checkIP,
             'ip' => $_SERVER['REMOTE_ADDR'],
             'data' => Pendataanip::where('ip_address', $ipAddress)->first(),
-            'computer_name' => gethostbyaddr($_SERVER['REMOTE_ADDR']),
+            'computer_name' => getenv('COMPUTERNAME'),
+            // 'computer_name' => gethostbyaddr($_SERVER['REMOTE_ADDR']),
             'ram' => round($system->getRamTotal() / 1024 / 1024),
             'os' => php_uname(),
 
         ];
 
         return view('admin/pendataan/index', $data);
-        //     } else {
-        //         return redirect()->route('rekapCreate');
-        //     }
     }
 
     public function rekap()
@@ -143,7 +156,7 @@ class HomeController extends Controller
             $filedskmgmn = null;
         }
 
-        $status = 'aktif';
+        $status = '1';
         $status = request('status');
 
         // store the data in the database

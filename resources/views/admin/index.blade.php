@@ -1,14 +1,20 @@
 @extends('layouts.main')
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
-  @if(!$data->ip_address == null && !$data->user_name == null && !$data->detail_ruangan == null)
-  <div class="alert alert-info text-black" id="cek" role="alert">IP Komputer Anda sudah terdaftar pada
-    sistem,
-    Jika ada kesalahan silahkan diperbaiki pada form yang tersedia.</div>
-  @else
-  <div class="alert alert-danger text-black" id="cek" role="alert">IP Komputer Anda belum terdaftar pada
+    @if ($cek == 'true')
+        @if(!$data->ip_address == null && !$data->user_name == null && !$data->detail_ruangan == null)
+        <div class="alert alert-info text-black" id="cek" role="alert">IP Komputer Anda sudah terdaftar pada
+        sistem,
+        Jika ada kesalahan silahkan diperbaiki pada form yang tersedia.</div>
+        @else
+        <div class="alert alert-danger text-black" id="cek" role="alert">IP Komputer Anda belum terdaftar pada
+        sistem, Silahkan melakukan pendataan <a href="{{ url('pendataan') }}">disini</a>.</div>
+        @endif
+    @else
+    <div class="alert alert-danger text-black" id="cek" role="alert">IP Komputer Anda belum terdaftar pada
     sistem, Silahkan melakukan pendataan <a href="{{ url('pendataan') }}">disini</a>.</div>
-  @endif <div class="row">
+    @endif
+   <div class="row">
     <div class="col-4">
       <div class="card">
         <div class="card-body border-bottom">
@@ -17,28 +23,21 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="chartjs-size-monitor">
-            <div class="chartjs-size-monitor-expand">
-              <div class=""></div>
+            <div>
+                <canvas id="myChart"></canvas>
             </div>
-            <div class="chartjs-size-monitor-shrink">
-              <div class=""></div>
-            </div>
-          </div>
-          <canvas id="sales-chart-c" class="mt-2 chartjs-render-monitor" width="678" height="339"
-            style="display: block; width: 678px; height: 339px;"></canvas>
           <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3 mt-4">
             <div class="d-flex flex-column justify-content-center align-items-center">
               <p class="text-muted">Aktif</p>
-              <h5>492</h5>
+              <h5>{{ $aktif }}</h5>
             </div>
             <div class="d-flex flex-column justify-content-center align-items-center">
               <p class="text-muted">Sistem</p>
-              <h5>87k</h5>
+              <h5>{{ $sistem }}</h5>
             </div>
             <div class="d-flex flex-column justify-content-center align-items-center">
               <p class="text-muted">Tersedia</p>
-              <h5>882</h5>
+              <h5>{{ $tersedia }}</h5>
             </div>
           </div>
         </div>
@@ -91,29 +90,58 @@
   @endsection
 
   @push('js')
-  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-  <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
-  <script>
-    $(document).ready(function () {
-    $('#myTable').DataTable({
-        "bLengthChange": false,
-        "bFilter": true,
-        "bInfo": false,
-        "bAutoWidth": false,
-        "searching": false,
-        "paging": false });
-    });
-  </script>
-  <script>
-    $(document).ready(function () {
-        $('.utama').css('font-weight', 'bold');
-        $('.utama').css('color', 'red');
-    });
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    <script>
+        $(document).ready(function () {
+        $('#myTable').DataTable({
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            "searching": false,
+            "paging": false });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.utama').css('font-weight', 'bold');
+            $('.utama').css('color', 'red');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const data = {
+        labels: [
+            'Aktif',
+            'Sistem',
+            'Tersedia'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [{{ $aktif }}, {{ $sistem }}, {{ $tersedia }}],
+            backgroundColor: [
+                'rgb(54, 162, 235)',
+                'rgb(255, 99, 132)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+        };
+        const config = {
+        type: 'doughnut',
+        data: data,
+        };
+    </script>
 
+    <script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    </script>
 
-
-  </script>
   @endpush
 
   @push('css')

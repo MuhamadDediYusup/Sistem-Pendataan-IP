@@ -25,7 +25,7 @@
                                     Komputer</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="basic-default-password32"
-                                        placeholder="Masukkan Alamat IP" value="" name="nama_komputer">
+                                        placeholder="Masukkan Nama Komputer" value="" name="nama_komputer">
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">RAM</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="basic-default-password32"
-                                        placeholder="Masukkan Alamat IP" value="" name="ram">
+                                        placeholder="Masukkan RAM" value="" name="ram">
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="basic-default-password32"
-                                        placeholder="Masukkan Alamat IP" value="" name="os">
+                                        placeholder="Masukkan OS" value="" name="os">
                                 </div>
                             </div>
                         </div>
@@ -86,9 +86,9 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <select name="status" class="form-control">
-                                        <option value="Aktif">Aktif</option>
-                                        <option value="Sistem">Sistem</option>
-                                        <option value="Kosong">Kosong</option>
+                                        <option value="1">Aktif</option>
+                                        <option value="2">Sistem</option>
+                                        <option value="3">Tersedia</option>
                                     </select>
                                 </div>
                             </div>
