@@ -30,6 +30,7 @@ class HomeController extends Controller
             'data' => Pendataanip::all(),
             'ip' => $_SERVER['REMOTE_ADDR'],
             'title' => 'Home',
+            'data' => Pendataanip::where('ip_address', $_SERVER['REMOTE_ADDR'])->first(),
             'pendataan' => Pendataanip::all(),
         ];
         return view('admin/index', $data);
@@ -95,6 +96,8 @@ class HomeController extends Controller
 
     public function pendataanUpdate(Request $request)
     {
+        $input = $request->all();
+
         DB::table('pendataan')->where('id', $request->id)->update([
             'ip_address' => request('ip'),
             'computer_name' => request('nama_komputer'),
@@ -103,7 +106,7 @@ class HomeController extends Controller
             'user_name' => request('nama_pengguna'),
             'division' => request('divisi'),
             'detail_ruangan' => request('detail_ruangan'),
-            // 'img_dxdiag' => $filedxdiag,
+            // 'img_dxdiag' => $dxdiag,
             // 'img_dskmgmn' => $filedskmgmn,
             // 'img_ip' => $fileip,
         ]);
@@ -172,7 +175,6 @@ class HomeController extends Controller
 
     public function rekapStore(Request $request)
     {
-        ddd($request->all());
         if ($request->hasFile('tcp_ip')) {
             $file = $request->file('tcp_ip');
             $extension = $file->getClientOriginalExtension();
@@ -219,6 +221,17 @@ class HomeController extends Controller
 
     public function RekapUpdate(Request $request)
     {
+        $input = $request->all();
+
+        if ($image = $request->file('dxdiag')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['dxdiag'] = "$profileImage";
+        } else {
+            unset($input['dxdiag']);
+        }
+
         DB::table('pendataan')->where('id', $request->id)->update([
             'ip_address' => request('ip'),
             'computer_name' => request('nama_komputer'),

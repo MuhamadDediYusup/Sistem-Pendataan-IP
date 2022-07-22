@@ -27,20 +27,24 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                    <a class="navbar-brand brand-logo" href="{{ url('/') }}"><i class="bi bi-wifi text-white mr-2"></i><b class="text-white">SI-Jari</b></a>
-                    <a class="navbar-brand brand-logo-mini" href="/"><img src="images/logo-mini.svg" alt="logo" /></a>
+                    <a class="navbar-brand brand-logo" href="{{ url('/') }}"><i
+                            class="bi bi-wifi text-white mr-2"></i><b class="text-white">SI-Jari</b></a>
+                    <a class="navbar-brand brand-logo-mini" href="{{ url('/') }}"><i
+                            class="bi bi-wifi text-white ml-3"></i></a>
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
                         data-toggle="minimize">
                         <span class="typcn typcn-th-menu"></span>
                     </button>
                 </div>
             </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+                style="background-color: #844FC1">
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-date dropdown">
-                        <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
+                        <a class="nav-link d-flex justify-content-center align-items-center bg-white"
+                            href="javascript:;">
                             @php
-                                Carbon\Carbon::setLocale('id');
+                            Carbon\Carbon::setLocale('id');
                             @endphp
                             <h6 class="date mb-0">{{ Carbon\Carbon::now()->format('l, d F Y') }}</h6>
                             <i class="typcn typcn-calendar"></i>
@@ -52,8 +56,7 @@
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                            class="d-none">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     </li>
@@ -186,20 +189,18 @@
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
             <footer class="footer">
-				<div class="container-fluid">
-					<nav class="card-body shadow">
-						<ul class="nav">
-							<span>Developed by Muhamad Dedi Yusup | Suharjoko - JQ as Project Manager</span>
-                            <span class="copyright ml-auto">
-                                Copyright © 20220701 - {{ Carbon\Carbon::now()->format('Y') }}
-                            </span>
-						</ul>
-					</nav>
-				</div>
-			</footer>
-        <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
+                <nav class="card-body shadow">
+                    <ul class="nav">
+                        <span>Developed by Muhamad Dedi Yusup | Suharjoko - JQ as Project Manager</span>
+                        <span class="copyright ml-auto">
+                            Copyright © 20220701 - {{ Carbon\Carbon::now()->format('Y') }}
+                        </span>
+                    </ul>
+                </nav>
+            </footer>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
 
