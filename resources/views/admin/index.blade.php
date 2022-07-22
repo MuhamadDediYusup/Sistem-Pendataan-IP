@@ -62,16 +62,25 @@
               <tr>
                 <td>{{ $i }}</td>
                 <td>
-
-                  {{-- if ip computer is same in database make a link --}}
-                  @if ($item->ip_address == $ip)
-                  <a class="utama" href="{{ url('/pendataan') }}">{{ $item->ip_address }}</a>
-                  <sup class="text-danger">
-                    *IP Anda
-                  </sup>
-                  @else
-                  {{ substr($item->ip_address, 0, 10) }}xxx
-                  @endif
+                    @if (Auth::user()->role == 'admin')
+                        @if ($item->ip_address == $ip)
+                        <a class="utama" href="{{ url('/pendataan') }}">{{ $item->ip_address }}</a>
+                        <sup class="text-danger">
+                            *IP Anda
+                        </sup>
+                        @else
+                        {{ $item->ip_address }}
+                        @endif
+                    @else
+                        @if ($item->ip_address == $ip)
+                        <a class="utama" href="{{ url('/pendataan') }}">{{ $item->ip_address }}</a>
+                        <sup class="text-danger">
+                            *IP Anda
+                        </sup>
+                        @else
+                        {{ substr($item->ip_address, 0, 10) }}xxx
+                        @endif
+                    @endif
 
                 </td>
                 <td>{{ $item->user_name }}</td>

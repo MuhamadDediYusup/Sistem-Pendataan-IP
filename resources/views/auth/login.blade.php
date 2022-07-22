@@ -34,11 +34,11 @@
               <form class="pt-3" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                  <input type="text" class="form-control @error('email') is-invalid @enderror" name="name"
-                    value="{{ old('email') }}" required autocomplete="email" autofocus id="email"
+                  <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                    value="{{ old('name') }}" required autocomplete="name" autofocus id="name"
                     placeholder="Username" />
 
-                  @error('email')
+                  @error('name')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                   </span>
